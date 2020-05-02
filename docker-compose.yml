@@ -1,0 +1,9 @@
+version: '2'
+
+services:
+  web:
+    image: nginx:stable
+    ports:
+      - 80:80
+    volumes:
+      - ./static_site:/usr/share/nginx/html:ro 
