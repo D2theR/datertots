@@ -1,0 +1,104 @@
+.hit-area {
+    position: absolute;
+    left: 8px;
+    width: 100px;
+    height: 100px;
+  }
+  
+  #a-1 {
+    width: 1000%;
+    height: 100px;
+  }
+  
+  #c-3 {
+    width: 5%;
+    height: 17%;
+    position: fixed;
+    top: 3%;
+    left: 1%;
+  }
+  
+  .eye {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    left: 25%;
+    top: 34%;
+    background-color: white;
+    pointer-events: none;
+  }
+  
+  .eye + .eye {
+    left: 42%;
+  }
+  
+  .pupil {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 45%;
+    background-color: black;
+    left: 30%;
+    top: 60%;
+    margin-left: -2px;
+    margin-top: -4px;
+    transition: all .5s ease;
+  }
+  
+  .eyelid {
+    width: 10px;
+    height: 5px;
+    background-color: black;
+    position: absolute;
+    left: 45%;
+    top: 20%;
+    pointer-events: none;
+    -webkit-animation-name: blink;
+    -webkit-animation-duration: 2.0s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-direction: alternate;
+    -webkit-animation-delay: 1s;
+    -webkit-transition: all .5s ease;
+  }
+  
+  .eyelid + .eyelid {
+    left: 25%;
+  }
+  
+  @-webkit-keyframes blink {
+    5% {
+      top: 25%;
+    }
+    95% {
+      top: 25%;
+    }
+    100% {
+      top: 30%;
+    }
+  }
+  
+  .hitbox:hover ~ .eyelid {
+    -webkit-transform: rotate(-1deg);
+  }
+  
+  .hitbox:hover ~ .eyelid:nth-of-type(2n+1) {
+    -webkit-transform: rotate(10deg);
+  }
+  
+  #c-3:hover ~ .eyelid {
+    -webkit-transform:  rotate(-1deg);
+  }
+  
+  #c-3:hover ~ .eyelid:nth-of-type(2n+1) {
+    -webkit-transform: rotate(-1deg);
+  }
+  
+  #c-3:hover ~ .eye .pupil {
+    background-color: red;
+  }
+  
+  #a-1:hover ~ .eye > .pupil {
+    -webkit-transform: rotate(-10deg) translate(5px);
+  }
