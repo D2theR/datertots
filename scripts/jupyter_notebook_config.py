@@ -16,7 +16,7 @@ def deploy_post(jupyter_data={}):
 
     # Finds 1st header <h1> tag in post and uses it as file name.
     title = [i.get('id') for i in post.find_all("h1", limit=1)][0]
-    template = "./static_site/blogs/"+title+".html"
+    template = "./blogs/"+title+".html"
     # Parses multiple authors from <author> tags
     authors = " | ".join([i.get_text() for i in post.find_all("author")])
     # Parses a list of tags that will help filter posts on the site.
@@ -37,7 +37,7 @@ def deploy_post(jupyter_data={}):
         jdata = json.loads(data)  # JSON load from file
         # For each record in JSON file, run generator
         blog = next((key for key in jdata if key["title"] == title), None)
-        if blog is not None:  # Find record that matches title and update it's info
+        if blog is not None:  # Find record that exists with title and update it.
             new_blog = {
                 'title': title,
                 'template': template,
@@ -51,7 +51,7 @@ def deploy_post(jupyter_data={}):
             f.truncate()
             print('Updated existing record: ', blog)
             f.close()
-        if blog is None:
+        if blog is None:  # If record doesn't exist, make it.
             new_record = {
                 'title': title,
                 'template': template,
@@ -66,11 +66,16 @@ def deploy_post(jupyter_data={}):
             f.close()
         else:
             f.close()
-    return post
+    # Update changed HTML and add title for saving filename
+    jupyter_data['html'] = str(post)
+    jupyter_data.update({'title': title})
+    return jupyter_data
 
 
 def html_post_save(model, os_path, contents_manager, **kwargs):
     """Converts notebooks to HTML after save with nbconvert's HTMLExporter
+    ### For more information on Jupyter notebooks config files and save hooks:
+    ### https://jupyter-notebook.readthedocs.io/en/stable/extending/savehooks.html
     """
     from nbconvert.exporters.html import HTMLExporter
 
@@ -86,17 +91,17 @@ def html_post_save(model, os_path, contents_manager, **kwargs):
 
     base, ext = os.path.splitext(os_path)
     html, resources = _html_exporter.from_filename(os_path)
-    html_fname = os.getcwd()+'/static_site/blogs/' + \
-        resources.get('output_extension', '.html')
-    log.info("Saving HTML blog post /%s",
-             to_api_path(html_fname, contents_manager.root_dir))
-
     # Parse html file above using BeautifulSoup4
     model.update({'html': html})
     parsed_html = deploy_post(model)
+    # Parse filename for new post.
+    html_fname = os.getcwd()+'/static_site/blogs/'+parsed_html['title']+'.html'
+    log.info("Saving HTML blog post /%s",
+             to_api_path(html_fname, contents_manager.root_dir))
 
+    # Write blog post to disk
     with io.open(html_fname, 'w', encoding='utf-8') as f:
-        f.write(str(parsed_html))
+        f.write(parsed_html['html'])
         f.close()
 
 
