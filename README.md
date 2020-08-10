@@ -1,4 +1,4 @@
-# ![Logo](../static_site/src/logo.png)
+# ![](./static_site/src/logo.png)
 
 ### Installation
 
