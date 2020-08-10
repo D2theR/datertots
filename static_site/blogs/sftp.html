@@ -1,0 +1,127 @@
+<html>
+<head><meta charset="utf-8"/>
+<title>lets talk crypto</title>
+
+<style type="text/css">
+/* Overrides of notebook CSS for static HTML export */
+body {
+  overflow: visible;
+  padding: 8px;
+}
+
+div#notebook {
+  overflow: visible;
+  border-top: none;
+}@media print {
+  div.cell {
+    display: block;
+    page-break-inside: avoid;
+  } 
+  div.output_wrapper { 
+    display: block;
+    page-break-inside: avoid; 
+  }
+  div.output { 
+    display: block;
+    page-break-inside: avoid; 
+  }
+}
+</style>
+<!-- Loading mathjax macro -->
+<!-- Load mathjax -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_HTML"></script>
+<!-- MathJax configuration -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+            processEscapes: true,
+            processEnvironments: true
+        },
+        // Center justify equations in code and markdown cells. Elsewhere
+        // we use CSS to left justify single line equations in code cells.
+        displayAlign: 'center',
+        "HTML-CSS": {
+            styles: {'.MathJax_Display': {"margin": 0}},
+            linebreaks: { automatic: true }
+        }
+    });
+    </script>
+<!-- End of mathjax configuration --></head>
+<body>
+<div class="border-box-sizing" id="notebook" tabindex="-1">
+<div class="container" id="notebook-container">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">log</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="What-is-SFTP?">What is SFTP?<a class="anchor-link" href="#What-is-SFTP?">¶</a></h2><p>SFTP is a file transfer protocol used to transmit data over a secure (encrypted) channel. This data can be any type of file you can imagine. 
+While SFTP can be setup in a few different ways, I would strongly reccomend that you make use of public/private key system to secure your SFTP comunications. This is crucial if you are in a situatuion where you need to transmit data that is subject to HIPA, and in general it is still a really good idea in general for all data transfer needs.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="What-is-the-difference-between-public-and-private-keys?">What is the difference between public and private keys?<a class="anchor-link" href="#What-is-the-difference-between-public-and-private-keys?">¶</a></h2><p>public key cryptography is a method for comunicating securely over an insecure channel (like the internet). the idea is that we divide our encryption key into two parts. the first part is called our public key, this is the key we can share with the world. your public key is sort of like telling someone your first name, it gives that person a way to identify you so that they can comunicate with you in a secure fashion. public keys are usualy denoted with the <code>.pub</code> file extension. The other part of our key is called the private key, the secrecy of this file is what allow a public key cryptographic system to work. Your private key is sort of like your Social Security Number, there is not any reason at all that you should ever give your private key to anyone.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Why-should-I-use-SFTP">Why should I use SFTP<a class="anchor-link" href="#Why-should-I-use-SFTP">¶</a></h2><p>we use a measure called entropy to compare the security of different systems.</p>
+<p>$ L \log_2 N $ where L is the length or number of charecters in your password and N is the number of posible symbols a given</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span> <span class="n">log</span><span class="p">(</span><span class="mi">62</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+
+<div class="output_text output_subarea output_execute_result">
+<pre>5.954196310386876</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="How-do-I-use-SFTP">How do I use SFTP<a class="anchor-link" href="#How-do-I-use-SFTP">¶</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
