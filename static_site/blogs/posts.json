@@ -2,36 +2,15 @@
   {
     "title": "Modifying-Jupyter-Notebook-on-save",
     "template": "./blogs/Modifying-Jupyter-Notebook-on-save.html",
-    "tags": [
-      "jupyter-notebook",
-      " python",
-      " javascript",
-      "vuejs"
-    ],
+    "tags": ["jupyter-notebook", " python", " javascript", "vuejs"],
     "created": "2020-08-09 21:23:11.511166+00:00",
     "authors": "Dan Rerko"
-  },
-  {
-    "title": "Modifying-Jupyter-Notebook-on-poop",
-    "template": "./blogs/Modifying-Jupyter-Notebook-on-poop.html",
-    "authors": "Dan Rerko",
-    "tags": [
-      "jupyter-notebook",
-      " python",
-      " javascript",
-      " vuej"
-    ],
-    "created": "2020-08-09 21:23:11.511166+00:00"
   },
   {
     "title": "Lets-talk-about-crypo",
     "template": "./blogs/Lets-talk-about-crypo.html",
     "authors": "Steeltoedpancake",
-    "tags": [
-      "linux",
-      " security",
-      " crypto"
-    ],
+    "tags": ["linux", " security", " crypto"],
     "created": "2020-08-10 10:31:17.106241+00:00"
   }
 ]
